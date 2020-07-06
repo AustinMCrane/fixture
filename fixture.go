@@ -7,6 +7,9 @@ import (
 	"path/filepath"
 )
 
+// Save a struct to a file with a path and a file name
+// path can be an empty string to save to current directory.
+// the json is saved in pretty print
 func Save(inter interface{}, path string, fileName string) error {
 	js, err := json.MarshalIndent(inter, "", "	")
 	if err != nil {
@@ -23,6 +26,9 @@ func Save(inter interface{}, path string, fileName string) error {
 	return nil
 }
 
+// Read a struct from a file with a path and a file name
+// path can be an empty string to save to current directory.
+// the json file can be in any format pretty or no spaces.
 func Read(inter interface{}, path string, fileName string) error {
 	filePath := filepath.Join(path, fileName)
 
